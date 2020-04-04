@@ -9,18 +9,17 @@ import java.util.ArrayList;
 
 public class projetConfidentiel extends Activity {
 
-    public double setBluetoothDistance(double rssi, double txPower) {
-        double distanceTest;
-        return distanceTest = Math.pow(10.0D, (txPower - rssi) / 20.0D);
-    }
-
     //Définition des zones proxémiques (valeurs exactes à définir)
     ProxZone proxzone = new ProxZone(0.25D, 0.45D, 1.0D, 2.0D);
 
 
     // Met à jour la zone proxémique en fonction de la distance
-    Distance distance = new Distance();
-    String zoneProxemique = proxzone.setDistanceofEntity(distance.getDistance());
+    final Distance uneDistance = new Distance();
+    void uneDistanceBluetooth(){
+        uneDistance.setBluetoothDistance();
+    }
+
+    String zoneProxemique = proxzone.setDistanceofEntity(uneDistance.getDistance());
     //Alarme sur le telephone
     MediaPlayer alarme = MediaPlayer.create(this, R.raw.alarme1);
 
